@@ -10,7 +10,7 @@ WORKDIR /app
 # Copy the jar file of the Config Server application into the container
 COPY target/WalletService-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port used by the Config Server
+
 EXPOSE 8020
 
 
