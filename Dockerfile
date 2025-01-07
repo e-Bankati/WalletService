@@ -1,16 +1,20 @@
-FROM ubuntu:latest
-LABEL authors="houda"
+FROM ubuntu:latest AS build
 
-# Use an official OpenJDK runtime as the base image
+RUN apt-get update
+RUN apt-get install openjdk-17-jdk -y
+COPY . .
+
+RUN apt-get install maven -y
+RUN mvn clean install
+
 FROM openjdk:17-jdk-slim
 
-# Set the working directory in the container
-WORKDIR /app
-
-COPY target/WalletService-0.0.1-SNAPSHOT.jar app.jar
-
-
 EXPOSE 8020
+
+COPY --from=build target/WalletService-0.0.1-SNAPSHOT.jar app.jar
+
+
+
 
 
 # Run the Config Server application
