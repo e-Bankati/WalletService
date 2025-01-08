@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: walletservice-ikcz.onrender.com
+    hostname: bankatii-wallet-service.onrender.com
   client:
     serviceUrl:
       defaultZone:
