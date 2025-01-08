@@ -3,10 +3,11 @@ server:
 
 eureka:
   instance:
-    hostname: https://walletservice-ikcz.onrender.com
+    hostname: walletservice-ikcz.onrender.com
   client:
     serviceUrl:
-      defaultZone: https://bankatii-discovery-server.onrender.com
+      defaultZone:
+        ${EUREKA_HOST:https://bankatii-discovery-server.onrender.com/eureka/}
     register-with-eureka: false
     fetch-registry: false
   server:
